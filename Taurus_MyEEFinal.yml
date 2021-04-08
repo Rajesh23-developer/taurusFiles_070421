@@ -12,7 +12,7 @@ provisioning: cloud
   
 scenarios:
   Perf2:
-    script: Perf2.jmx
+   script: Perf2.jmx
   requests:
     - http://blazedemo.com/
 

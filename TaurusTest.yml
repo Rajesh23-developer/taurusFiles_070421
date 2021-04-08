@@ -1,0 +1,34 @@
+execution:
+  - executor: jmeter
+    concurrency: 10
+    hold-for: 5m
+    ramp-up: 2m
+    locations:
+      europe-west2-a: 3
+    scenario: Perf2
+
+scenarios:
+  Perf2:
+    script: Perf2.jmx
+    headers:
+      Connection: close
+    requests:
+      - http://blazedemo.com/
+
+modules:
+  - final-stats: bzt.modules.reporting.FinalStatus
+
+reporting:
+  - module: final-stats
+  - module: blazemeter
+    report-name: Taurus myee report
+    project: MyEE
+    upload-artifacts: true
+    summary: true  # overall samples count and percent of failures
+    percentiles: true  # display average times and percentiles
+    summary-labels: true # provides list of sample labels, status, percentage of completed, avg time and errors
+    failed-labels: true  # provides list of sample labels with failures
+    test-duration: true  # provides test duration
+    dump-xml: XMLResults.xml
+    dump-csv: CSVResults.csv
+

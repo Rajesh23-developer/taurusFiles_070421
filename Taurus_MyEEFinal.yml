@@ -13,13 +13,9 @@ provisioning: cloud
 scenarios:
   Perf2:
     script: Perf2.jmx
-    requests:
-      - http://blazedemo.com/
-
 
 modules:
   blazemeter:
-    token: 60d99b669484173854c961206cb85149e4218a63f541357ec615ff321217bb1e0f32b43b
     dedicated-ips: false
     
 reporting:

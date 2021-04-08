@@ -7,11 +7,11 @@ execution:
       europe-west2-a: 3
     scenario: Perf2
 
+provisioning: cloud
+
 scenarios:
   Perf2:
     script: Perf2.jmx
-    headers:
-      Connection: close
     requests:
       - http://blazedemo.com/
 

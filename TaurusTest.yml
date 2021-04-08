@@ -16,6 +16,8 @@ scenarios:
       - http://blazedemo.com/
 
 modules:
+  - blazemeter:
+      token: TDknBxu0hmVnJ7NqtG2F:DFadfgdsljasdfkKSKSDDFKSDFJKSDJFKSDJFsdjfksjfjDSF
   - final-stats: bzt.modules.reporting.FinalStatus
 
 reporting:

@@ -1,21 +1,27 @@
 execution:
+- scenario: Perf2
   executor: jmeter
   concurrency: 10
   hold-for: 3m
   ramp-up: 1m
   locations:
     europe-west2-a: 3
-  scenario: Perf2
+    europe-west3-a: 1
+    us-east4-a: 1
+    us-west1-a: 1
 provisioning: cloud
+
 scenarios:
   Perf2:
     script: Perf2.jmx
   requests: http://blazedemo.com/
+
 modules:
   blazemeter:
     token: c797962ab2fbe8836952bfb9:60d99b669484173854c961206cb85149e4218a63f541357ec615ff321217bb1e0f32b43b
-    dedicated-ips: false
+    dedicated-ips: true
   final-stats: bzt.modules.reporting.FinalStatus
+
 reporting:
   module: final-stats
   report-name: Taurus myee report

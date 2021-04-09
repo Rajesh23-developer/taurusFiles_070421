@@ -1,7 +1,9 @@
 execution:
 - scenario: Perf2
   executor: jmeter
-  concurrency: 10
+  concurrency:
+    local: 5
+    cloud: 1000
   hold-for: 3m
   ramp-up: 1m
   locations:
@@ -14,13 +16,13 @@ provisioning: cloud
 scenarios:
   Perf2:
     script: Perf2.jmx
-  requests: http://blazedemo.com/
 
 modules:
+  cloud:
+  report-name: myEEFullReport
+  project: myEE
   blazemeter:
-    token: c797962ab2fbe8836952bfb9:60d99b669484173854c961206cb85149e4218a63f541357ec615ff321217bb1e0f32b43b
     dedicated-ips: true
-  final-stats: bzt.modules.reporting.FinalStatus
 
 reporting:
   module: final-stats
